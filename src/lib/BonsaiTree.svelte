@@ -58,6 +58,7 @@
     line-height: 1.2;
     max-width: 100vw;
     overflow: hidden;
+    align-self: flex-start;
   }
   }
   .cursor {
