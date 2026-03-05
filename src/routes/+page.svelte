@@ -339,7 +339,7 @@
   a.project-card:hover { background: var(--card-hover); }
 
   .ascii-thumb {
-    font-family: monospace;
+    font-family: "Roboto Mono", monospace;
     font-size: 0.78rem;
     line-height: 1.45;
     color: var(--ascii-color);
