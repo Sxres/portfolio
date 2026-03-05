@@ -3,7 +3,7 @@
 
   export let speed = 1;
   export let apiUrl = "https://bonsai-api-434709608207.northamerica-northeast2.run.app";
-
+  
   let tree = "";
   let loading = true;
   let done = false;
@@ -41,7 +41,7 @@
 
 <style>
   .bonsai {
-    font-family: 'Courier New', Courier, monospace;
+    font-family: "Roboto Mono", monospace;
     font-size: 1.2rem;
     line-height: 1.3;
     white-space: pre;
