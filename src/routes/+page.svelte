@@ -67,7 +67,6 @@
 +----------+`,
     },
     {
-
       title: "Temperature Predictor",
       year: "2025",
       desc: "XGBoost regression model deplyed with Streamlit frontend that predicts future temperatures based on historical trend data.",
@@ -182,7 +181,7 @@
     cursor: default;
   }
 
-  /* ── bonsai crap ── */
+  /* ── desktop bonsai (fixed) ── */
   .bonsai-wrap {
     position: fixed;
     right: 0;
@@ -199,6 +198,17 @@
     overflow: visible;
   }
 
+  /* ── mobile bonsai (inline, above hero) ── */
+  .bonsai-wrap-mobile {
+    display: none;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 2rem 0 0.5rem;
+    pointer-events: none;
+  }
+
   .bonsai-credit {
     font-size: 0.65rem;
     color: var(--dim);
@@ -209,7 +219,7 @@
   }
 
   .bonsai-credit:hover {
-  color: var(--text);
+    color: var(--text);
   }
 
   /* ── layout ── */
@@ -390,14 +400,58 @@
     color: var(--dim);
   }
 
+  /* ── mobile ── */
+  @media (max-width: 768px) {
+    /* hide desktop fixed bonsai */
+    .bonsai-wrap {
+      display: none;
+    }
+
+    /* show inline mobile bonsai */
+    .bonsai-wrap-mobile {
+      display: flex;
+    }
+
+    .page {
+      margin-left: 0;
+      padding: 0 1.2rem;
+    }
+
+    header {
+      width: 100%;
+      flex-wrap: wrap;
+      gap: 1rem;
+      padding: 1.2rem 0;
+    }
+
+    nav {
+      gap: 1.2rem;
+      flex-wrap: wrap;
+    }
+
+    /* hero doesn't need min-height since bonsai is above it now */
+    .hero {
+      min-height: unset;
+      padding: 1.5rem 0 3rem;
+      gap: 1.6rem;
+    }
+
+    .emoticon {
+      font-size: 2rem;
+    }
+
+    .section {
+      padding: 3rem 0;
+    }
+  }
 </style>
 
-<!-- bonsai fixed to right -->
+<!-- desktop bonsai: fixed to right -->
 <div class="bonsai-wrap">
   <BonsaiTree speed={1}/>
   <a href="https://github.com/Ben-Edwards44/PyBonsai" target="_blank" rel="noopener" class="bonsai-credit">
-                  procedurally generated bonsai by PyBonsai
-    </a>
+    procedurally generated bonsai by PyBonsai
+  </a>
 </div>
 
 <div class="page">
@@ -411,6 +465,14 @@
       {dark ? 'light' : 'dark'}
     </button>
   </header>
+
+  <!-- mobile bonsai: inline above hero -->
+  <div class="bonsai-wrap-mobile">
+    <BonsaiTree speed={1}/>
+    <a href="https://github.com/Ben-Edwards44/PyBonsai" target="_blank" rel="noopener" class="bonsai-credit">
+      procedurally generated bonsai by PyBonsai
+    </a>
+  </div>
 
   <section class="hero">
     <div>
