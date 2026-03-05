@@ -41,7 +41,7 @@
 
 <style>
   .bonsai {
-    font-family: monospace;
+    font-family: 'Courier New', Courier, monospace;
     font-size: 1.2rem;
     line-height: 1.3;
     white-space: pre;

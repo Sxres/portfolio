@@ -4,7 +4,7 @@
 
   let name = "Dragos Sorescu";
   let role = "developer / student";
-  let bio = "Aspiring ML engineer based in Toronto, focused on machine learning and computer vision but very interested in robotics and embedded systems. Trying to learn something new every day.";
+  let bio = "Aspiring ML engineer based in Toronto, focused on machine learning and computer vision but very interested in robotics and embedded systems.";
 
   let dark = true;
   
@@ -24,7 +24,7 @@
     {
       title: "Playing Cards Detection",
       year: "2026",
-      desc: "Computer vision model that detects and classifies playing cards in real time.",
+      desc: "YOLOv26 based playing card detection for ranks and suits, OpenCV used for poker hand rankings with the treys.",
       tag: "opencv / ml",
       href: "https://github.com/Sxres/PlayingCardsDetection",
       ascii: `
@@ -33,44 +33,44 @@
 | detect:  |
 | > 98.2%  |
 | [Q♦] [J♣]|
-| cv model |
+| straight |
 +----------+`,
     },
     {
       title: "Skin Cancer Classification",
       year: "2026",
-      desc: "DinoV2-based image classifier for skin cancer research - benign vs malignant detection.",
+      desc: "DinoV2-based image classifier for skin cancer research - benign vs malignant detection from Stanford Multi-Modal AIMI dataset.",
       tag: "research / ml",
       href: "https://github.com/Sxres/SkinCancerImageClassificationResearch",
       ascii: `
 +----------+
 | scan >>> |
 | [  img  ]|
-| CNN v    |
+| Dino v   |
 | benign?  |
 | malign?  |
 +----------+`,
     },
     {
-      title: "Image Processor",
-      year: "2026",
-      desc: "Image processing tool with blur, flip, greyscale and export functionality.",
-      tag: "tool",
-      href: "https://github.com/Sxres/ImageProcessor",
+      title: "News Market Rag",
+      year: "2025",
+      desc: "RAG pipeline that ingests financial news and generates a market newsletter using retrieval-augmented generation.",
+      tag: "ml / nlp",
+      href: "https://github.com/Sxres/FunnyMarketNewsLetter",
       ascii: `
 +----------+
-| RGB >>>  |
-| blur()   |
-| flip()   |
-| grey()   |
-| > save   |
+| news >>  |
+| embed()  |
+| retrieve |
+| > gen    |
+| RAG      |
 +----------+`,
     },
     {
 
       title: "Temperature Predictor",
       year: "2025",
-      desc: "App that predicts future temperatures based on historical trend data.",
+      desc: "XGBoost regression model deplyed with Streamlit frontend that predicts future temperatures based on historical trend data.",
       tag: "app / ml",
       href: "https://github.com/Sxres/temperature_predictor_app",
       ascii: `
@@ -106,219 +106,6 @@
     clearInterval(interval);
   });
 
-  /*const trees = [
-    `                   #  @ %&&&                          
-          % &%##&###&&@&@@#&#&#%@               
-      #@%@%@@%&&@&\\@&%&#@%#&@/#@@&#&            
-      %# |@@#&#% :##;\\&|%#@&%&&@&### #          
-  ## &%&&%&&@# %#%&#@ ~&#:_#_&###@#&@ _/ ##&@   
-  %%&&%%#&@%@ @%\\#_ &_||&@#&@@&#@&&#@\\%        
-  #&__#%/%%       __#~/&%%@%@#@@@ ##@&@%&@       
-  & |&  &#        |      \\##&@|  @ &%%_&##&     
-#  %\\__  =______=|      =\\ ~    /##@ #&%@      
-       __        :|:__  |/_@%%=~%% /##%&         
-                  || /   #@#_\\/%#%# %            
-                  |||   %%@#&@#&%%@               
-                  ||  %%   &#&%                   
-                  ;| &#     %;_;_;___;:           
-                  =~     /_           ;~|        @
-                  ;|=  /:                =   #&#@&&@#
-                  |~|//           %@@&&# _\\%  _/@%&
-                  =|:;          ##&%%@&%@&@&_#&#%@ %
-                  ;;/             @&|#&&%&%#@@&&@ &# 
-                  ;||            % @&&%@%@#&@@  %&   
-                  ;||              %& # %# %         
-                  |||                     @          
-      \\______.--./||;\\._________/               
-       \\ ~ .        .     ~    /                
-        \\_____________________/ 
-           ‾               ‾                 
-`,
-    `                                         
-                      @ % &
-        @#&&@&@%@@@##&#@@&# %%
-&@#%\\&&#&&&@;%#&&@%@%%@&@%#&%##  #
-  @@%&%&@@#;#  &##&@&#% |##%#%%#%@
-   @# #%# &~&_\\@@#&%@%% |;_#_%%%&
-    #%   :\\   @&#@%#%%\\%\\= & &%/#&#
-       ~  @ ;=  #@#  |   #   |%#%\\@#@@% %#
-          |_=;_ __=  @   ;  __/&&&%%#%@#&%|@#&
-          /    #@  @#    |__   _:|@&_@ &&#;#&&&
-        /        %#&#& ~      @&%#%@## @_&&_ #@%
-       /        #@ @&|@       &#%@@  ;;:%%%&%%&%@
-       |       % &  #&       &% %#   |    ##@&#&#
-       |         &    ~       &%    |    % _###&#@
-       |              |          //|__~_____%%&\\&#
-       |              | ______/=/         =    @  %#
-        \\           /|=        \\\\   &&  &%  %
-         ~\\        ~/              ;|##%%@&   #
-           \\;    //                  |%%%&@%
-            \\\\=~/                    @%   %%%
-             /\\\\                     |
-             |||            #@%@&@|@|@
-             |;|               &@#&@%@#
-             |||                #@@%#%##
-             ||=               #@ &#@%  &
-             ||:                  #%     &
-             ||:
-\\_.---.___./|;|\\._________/
- \\                       /
-  \\_____________________/
-     ‾                 ‾   
-`,
-    `                #&    # @
-            #&&%|%#@##%@#%#%@ @
-          %  @#@&@&@=@_#@%#%#@@ # #
-    #%#@&@%#&#&&\\#|@|#&&&%@|&&@##@
-     &% |&#&&&&@#@%@=###&@@%~#%@&%%#
-   @  %@%%@  @# |% %@@%@@&%&#%@&#&@#&
-  #&@@%#@#@&&% =   &@ @:@%%&&&@####%#%  ###
- #@##&%&|&/|=;_     #/_|\\_@&&%#&@@&%%#@&&#%@
-@@##@%|        \\ %// %&  %#%%%#&@%#@@&#&###%&%
-  #&## @@#       \\:&&@##@&%@#@&&#&&&@ @##/#&####
-  #&%& #&%%      @|\\#&#&&&#@%%@&#%@#=#%&%@%%|%@
-  #&    &#     %&&%|_#&&#@#&%#@#&&#@    & %%|%# %
-        &         \\@&@#%@&&@_@#&&#%@&&%@&@:#_&@%@@%&%@%
-          |;#@@##@~=_#%|%%#&%##&@_#@&&#@&%@@@#
-           #&&\\\\%|__  &&|=#&#&&@# %@&&#&@&&&@&&
-            ###;\\%%@  #|\\|#@   &#&#|#%#@&&##
-            @##&#\\\\%     \\    &%&@_##%%%#&@%
-             & # @|\\\\    ;:_=_#_#  #&|##:_%@
-            &&&  #~|   =/|=    & :_// &   %@#@@
-                  ~|~//;:/           #@ &&@%%%#&&
-                  |=///;         % @@#%@%&# @&#
-                  |:;            #%%@%~%%%% @  #
-                 |||            %#&&%&@&%  #
-                 :::           @%% #   &%%&
-    \\___.---._./|||\\._________@#  %    &@&
-     \\   ~  ~     *    .    ~/
-      \\_____________________/
-          ‾               ‾               
-`,
-    `                                         
-                                       &#   @   %&
-                      @# @  #%%& #%##  %&@@&##%#%@#%@@&
-                 &@&&@%&##@%#&&@&#@@#%%#&&&&@#%&@&&###&&%@
-                   @&%##&@&#@##@%%&##@@#@&@&@%%%=&%&%#@@&#
-           @&&&&%%%%&@#&@%_%@&#|%@@;%#@&%%&##~% %~%@@%%&%&
-       #@%%%&##@@@#%@:%%&|#@%%%#|/#|@#&%##&&%&&#  ##@&&#& &#
-      #%#&&%&%@%@@##%& \\\\   % %&%&| #@&##%@%%&#   ~#  #%#@\\\\
-    &&%@@@#&&@%#%#@&%&&@      % |  %@@% @@%%#&##/    #%& #
-     &%@&&%@;|\\\\&&#&/__~~&      ;:___/%_;@##%#%%&     @@  @#
-   @@&&&#@#&@%%\\\\@//\\\\   ~\\\\    /        _&%& ###&         #&
-   ##@&%%%\\\\%%&%@;         \\\\ /          &%@#% &|#
- &&&@%%  _______=_@        ;\\\\       &&#%|@&%#/@|_;:__:
- &#%&@#@#|  #&@@| \\\\        |              #&          \\\\
-    @ :#&##& %      \\\\       |           //;             |\\\\
-    @#@&@:#          \\\\=____ |          :|         @  %  \\\\
-   #   %  #&               ___;:       ;|        & %&@;;= =  ##
-       ##  #                 \\~\\\\\\\\    ||         &@#%%%&   |&%
-                                \\\\\\\\\\\\  ~|          @&   & & @&&#%&
-                                  \\\\~\\\\~                 &#% % #
-                                    =\\\\|                  #  @
-                                     ||=
-                                     ~:=
-                                     |=|
-                                      ;||
-                                      ~||
-                                       |||
-                           \\_________./=~|\\.---._____/
-                            \\       *    ~          /
-                             \\_____________________/
-                                 ‾               ‾
-`,
-    `                       %     ##&&#%&@#@##&%&
-                     @%%    @&@@@@&&@@#@&&#&&
-                    %##&#@#@=;/@%&%@#&&@@@%#& &%&
-               &#% @&%@%@###%@&%&%\\#/#|_%#%%##@
-            #&%# &#%|@%&&@%@/%%#%%@\\ % @|#&##%@% @#
-             &|&%&%@#%#%@#:|&& @& &@   _&@@@@&@#&%
-           &%@|@@|@#@@~@& |@@@# &@#%|__ # _%#&# %@%
-        &  %  &\\@%=&#_&|~~@_ %#@%@@|    ##%&&&@&&%&@
-         &@@@% @&|    /|~~_ \\=%#% %    &&&&@#&@&&#
-        @%@%%#;/__:_:_|        &%&       &##&#%#
-       @   @&#@%&~&&#|_\\#        ;       @   ##
-        %%:@##&@%  &@@&@\\&       |                                    %##
-     &%&@@##@#%&% %@@@%  /_;     |                                   &#&&#
-        \\&~~_#&%& %%  ;//   ;=____;              /   ~_=_~\\         @#%|@%#%#
-         % %%&::/___:/ &          \\\\           //____      \\=        #|#@ &
-              /                     \\\\       //~/            \\\\____ /%%#&%&#&&
-        @#@%#| %&                     \\\\   /=/=                |   /\\ #%@% @%@@
-       &%%&_&@@%#&&                     \\\\/~:                   |    &_&@%%& %
-      &  @## #@#% #                     |\\;                ##@ | @%#&&%%&@#@&%@
-        &   %  &&                       |||               =###% #&@@##%%%#%#%
-           @   % %                      |~~                @&#         %@@
-                                        |||                  #        % @@
-                                       |||
-                                       ;||
-                                       |||
-                           \\.--..--._./~||\\._________/
-                            \\    ~                 ~/
-                             \\_____________________/
-                                ‾                ‾
-`,
-    `                                       &&#@ % &@
-                               #   #  @&&%%&#@@&@#
-                         &    #%#@#@%%#%~@#@#@&&%&&
-                        &@@&&&@%@&@@  @|&&%@#=%@##@% %&&
-                       &##@&%%@_%%&@%__ |  &@#%@%#  &%%#
-                    %&@=%#&#%&@%%@%##@@:==@ @%&%@@#&#@@&@&#&
-                   &%&@@@&#&#%&@@@@#%%%#@%\\& #_&@#%&@_#@%&%&#@&
-                 #@@#@@@%#%&~_#&&#&&@@###%#=#__&@##%_&#&&& &%&##
-                &@@@@%&@&#%#@&&|%@###@%%&&#~;#@#&%%@#@@#%%@@%   %
-                   #%   %%  @%%&\\%%&:%@&_%&@::@%%@&%__#%@&&@#&%@
-                   #       &%&%@@|\\_@##/@&%#=|~;___%_|@#@%&%@%&##
-                          #%%#&|#|= @&#&@%@~|/;_~%##@#&@%##%%@@
-                             # #/|@&%&# %#;|/_|&@%%#:%%:@%&@&&@
-                             &@%@|@   # #|/&_#&%#@|#&@@#@#&%%  #
-                            ## @;=       ||&|&%#@&@%%@#%&@%@%
-                                &@\\    ||  ||@ %# #&&@&
-                                    \\ ~||  :| ~#&    &&
-                                     =\\|| |~/_;__:#\\
-                                       \\=|~:      #@&#&& &%& &
-                                       |~=|      @%%&%&___#@%&#&%
-                                       ||~      @#%@&#@@&##& #%
-                                       ~|:        # @& & %#  & #
-                                       |||        %@%  @   % @ @
-                           \\____..-._./|||\\._______@_/
-                            \\ .       *       ~     /
-                             \\_____________________/
-                                  ‾              ‾
-`,
-    `                                &               % #   @
-                        @#@ #%#@@%        @    &   &#@%@
-                       #& &#&&#%@&@###@ %@#%#&#%&&#&~@&#@%
-                       %&\\%##@# @&@%_&%/%@&=%%&&%&&%&&&%# %
-                     && &###@@&  %__ @&@&#&&&@%_@%%&:&_\\%_ #%&#
-                        %  %% ;;=   @#@=%_%&@ %  \\=% &#%&%#&%% @%
-                               ~   % /&  %&%#&    |& &&|%@ #&|@@&&@%
-                               | _;_;=:      @    |___:___\\%%;%@%%%@
-                               ||      ~@        /|    &%&%&@&@#&&|&&##
-                              ~     #&#%|      ;        &#@%@@#@&&|&@@@#@
-                             |     @&&@%%    /;         &   @% %~|#&#@%&
-                            ~~       %@ @#@   |            ~&_&=_@@&%%%&
-                             |      &@  & &  |           /=;     _#@&%#@&@
-                              |              ;         //      #&&#&;/ %&
-                              |              =;____;;_/\\         #%%~    &
-                              :\\;          ~/           \\\\\\=_;___@@#&@=%#&
-                               \\;\\~       /:               |    @ &@ & &@@
-                                 \\\\\\=\\  ;~                  |    #&|%%@ %%&
-                                   \\\\\\=:/                   |;\\    %@
-                                     /\\|            @&# #  /   \\\\##%&
-                                      =|;           %&%&@|@  @#& #%&%
-                                      |||          #%@%%#% &    #@&%%%
-                                      :=:            %% ##%@@ @% #
-                                      |=|            %   @@ &&#  @
-                                       ||;               #
-                                       |=|
-                           \\__.--.___./|:|\\._________/
-                            \\   . ~   ~.            /
-                             \\_____________________/
-                                ‾                ‾
-`
-  ];
-
-  const bonsai = trees[Math.floor(Math.random() * trees.length)]; */
 </script>
 
 <style>
@@ -336,7 +123,7 @@
     padding: 0;
   }
 
-  /* ── smooth theme transitions on everything ── */
+  /* ── smooth theme transition on everything ── */
   :global(*, *::before, *::after) {
     transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
   }
@@ -377,11 +164,11 @@
     --muted: #666;
     --dim: #999;
     --border: #ddd;
-    --card-bg: #f0ede8;
-    --card-hover: #e8e4df;
+    --card-bg: #FAF7F6;
+    --card-hover: #f7f3f3;
     --card-border: #ddd;
-    --ascii-color: #bbb;
-    --ascii-hover: #666;
+    --ascii-color: #1a1a1a;
+    --ascii-hover: #5e5e5e;
     --nav-hover: #1a1a1a;
     --bonsai-color: #1a1a1a;
   }
@@ -395,37 +182,34 @@
     cursor: default;
   }
 
-  /* ── bonsai ── */
+  /* ── bonsai crap ── */
   .bonsai-wrap {
     position: fixed;
     right: 0;
     top: 0;
-    height: 75vh;
+    height: 82vh;
     width: 55vw;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding-top: 1rem;
     pointer-events: none;
     z-index: 0;
     overflow: visible;
   }
 
-  /*
-  .bonsai {
-    font-family: monospace;
-    font-size: 1.2rem;
-    line-height: 1.4;
-    white-space: pre;
-    background: linear-gradient(
-      to bottom,
-      var(--bonsai-top) 0%,
-      var(--bonsai-mid) 40%,
-      var(--bonsai-bot) 100%
-    );
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    transition: none;
+  .bonsai-credit {
+    font-size: 0.65rem;
+    color: var(--dim);
+    text-decoration: none;
+    letter-spacing: 0.04rem;
+    margin-top: 0.4rem;
+    pointer-events: auto;
+  }
+
+  .bonsai-credit:hover {
+  color: var(--text);
   }
 
   /* ── layout ── */
@@ -611,6 +395,9 @@
 <!-- bonsai fixed to right -->
 <div class="bonsai-wrap">
   <BonsaiTree speed={1}/>
+  <a href="https://github.com/Ben-Edwards44/PyBonsai" target="_blank" rel="noopener" class="bonsai-credit">
+                  procedurally generated by PyBonsai
+    </a>
 </div>
 
 <div class="page">
