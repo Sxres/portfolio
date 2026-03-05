@@ -1,6 +1,5 @@
-<script>
+<script lang="ts">
   import { onMount, onDestroy } from 'svelte';
-
   export let speed = 1;
   export let apiUrl = "https://bonsai-api-434709608207.northamerica-northeast2.run.app";
   
@@ -13,16 +12,18 @@
     try {
       const response = await fetch(`${apiUrl}/tree/instant`);
       const data = await response.json();
-      const full = data.tree;
+      const isMobile = window.innerWidth <= 768;
+      const full = isMobile
+        ? data.tree.split('\n').map((line: string) => line.trimStart()).join('\n')
+        : data.tree;
       loading = false;
-
       for (let i = 0; i < full.length; i++) {
         if (cancelled) break;
         tree += full[i];
         if (full[i] !== ' ') {
-            await new Promise(r => setTimeout(r, speed));
-  }
-}
+          await new Promise(r => setTimeout(r, speed));
+        }
+      }
       done = true;
     } catch (err) {
       console.error("Bonsai failed:", err);
@@ -52,15 +53,17 @@
   .bonsai.loading {
     opacity: 0.3;
   }
+
   @media (max-width: 768px) {
-  .bonsai {
-    font-size: 0.85rem;
-    line-height: 1.2;
-    max-width: 100vw;
-    overflow: hidden;
-    align-self: flex-start;
+    .bonsai {
+      font-size: 0.85rem;
+      line-height: 1.2;
+      max-width: 100vw;
+      overflow: hidden;
+      align-self: flex-start;
+    }
   }
-  }
+
   .cursor {
     display: inline-block;
     animation: blink 0.8s step-end infinite;
