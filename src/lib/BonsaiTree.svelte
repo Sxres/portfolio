@@ -53,12 +53,12 @@
 
   @media (max-width: 768px) {
     .bonsai {
-      font-size: 0.55rem;
+      font-size: 0.65rem;
       line-height: 1.2;
       max-width: 100vw;
       overflow: hidden;
       align-self: flex-start;
-      margin-left: -3rem;
+      margin-left: -4rem;
     }
   }
 
