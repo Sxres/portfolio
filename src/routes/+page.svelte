@@ -206,8 +206,9 @@
     align-items: flex-start;
     justify-content: flex-start;
     flex-direction: column;
-    padding: 0.5rem 0 0.5rem;
+    padding: 0;
     pointer-events: none;
+    margin-top: -3rem;
   }
 
   .bonsai-credit {

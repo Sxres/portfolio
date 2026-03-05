@@ -12,7 +12,7 @@
     try {
       const response = await fetch(`${apiUrl}/tree/instant`);
       const data = await response.json();
-      const full = data.tree.replace(/^\n+/, '');
+      const full = data.tree;
       loading = false;
       for (let i = 0; i < full.length; i++) {
         if (cancelled) break;
