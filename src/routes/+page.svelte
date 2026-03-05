@@ -203,6 +203,7 @@
   .bonsai-wrap-mobile {
     display: none;
     width: 100%;
+    overflow: hidden;
     align-items: center;
     justify-content: center;
     flex-direction: column;

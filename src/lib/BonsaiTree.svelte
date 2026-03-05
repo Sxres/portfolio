@@ -56,6 +56,8 @@
   .bonsai {
     font-size: 0.85rem;
     line-height: 1.2;
+    max-width: 100vw;
+    overflow: hidden;
   }
   }
   .cursor {
