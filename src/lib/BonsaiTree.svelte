@@ -1,4 +1,4 @@
-<script lang="ts">
+<script>
   import { onMount, onDestroy } from 'svelte';
   export let speed = 1;
   export let apiUrl = "https://bonsai-api-434709608207.northamerica-northeast2.run.app";
@@ -12,11 +12,7 @@
     try {
       const response = await fetch(`${apiUrl}/tree/instant`);
       const data = await response.json();
-      const isMobile = window.innerWidth <= 768;
-      const maxChars = Math.floor(window.innerWidth / 5.5)
-      const full = isMobile
-        ? data.tree.split('\n').map((line: string) => line.trimStart().slice(0, maxChars)).join('\n')
-        : data.tree;
+      const full = data.tree
       loading = false;
       for (let i = 0; i < full.length; i++) {
         if (cancelled) break;
