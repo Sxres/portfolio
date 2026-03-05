@@ -56,7 +56,7 @@
   .bonsai {
     font-size: 0.85rem;
     line-height: 1.2;
-    max-width: 130vw;
+    max-width: 30vw;
     overflow: hidden;
     align-self: flex-start;
   }
