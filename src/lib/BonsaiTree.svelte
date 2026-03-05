@@ -13,7 +13,7 @@
       const response = await fetch(`${apiUrl}/tree/instant`);
       const data = await response.json();
       const isMobile = window.innerWidth <= 768;
-      const maxChars = Math.floor(window.innerWidth / 8.5)
+      const maxChars = Math.floor(window.innerWidth / 5.5)
       const full = isMobile
         ? data.tree.split('\n').map((line: string) => line.trimStart().slice(0, maxChars)).join('\n')
         : data.tree;
@@ -57,7 +57,7 @@
 
   @media (max-width: 768px) {
     .bonsai {
-      font-size: 0.85rem;
+      font-size: 0.55rem;
       line-height: 1.2;
       max-width: 100vw;
       overflow: hidden;
