@@ -52,7 +52,12 @@
   .bonsai.loading {
     opacity: 0.3;
   }
-
+  @media (max-width: 768px) {
+  .bonsai {
+    font-size: 0.85rem;
+    line-height: 1.2;
+  }
+  }
   .cursor {
     display: inline-block;
     animation: blink 0.8s step-end infinite;

@@ -179,6 +179,7 @@
     font-size: 16px;
     line-height: 1.6;
     cursor: default;
+    overflow-x: hidden;
   }
 
   /* ── desktop bonsai (fixed) ── */
