@@ -4,7 +4,7 @@
 
   let name = "Dragos Sorescu";
   let role = "developer / student";
-  let bio = "Aspiring ML engineer based in Toronto, focused on machine learning and computer vision but very interested in robotics and embedded systems.";
+  let bio = "Aspiring ML engineer based in Toronto, focused on machine learning, deep learning, computer vision and reinforcement learning but very interested in robotics and embedded systems.";
 
   let dark = true;
   
