@@ -202,7 +202,7 @@
   /* ── mobile bonsai (inline, above hero) ── */
   .bonsai-wrap-mobile {
     display: none;
-    width: 100%;
+    width: 50%;
     overflow: hidden;
     align-items: flex-start;
     justify-content: flex-start;
