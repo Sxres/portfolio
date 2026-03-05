@@ -208,7 +208,7 @@
     flex-direction: column;
     padding: 0;
     pointer-events: none;
-    margin-top: -3rem;
+    margin-top: -5rem;
   }
 
   .bonsai-credit {
@@ -473,7 +473,7 @@
   <div class="bonsai-wrap-mobile">
     <BonsaiTree speed={1}/>
     <a href="https://github.com/Ben-Edwards44/PyBonsai" target="_blank" rel="noopener" class="bonsai-credit">
-      procedurally generated bonsai by PyBonsai
+                        procedurally generated bonsai by PyBonsai
     </a>
   </div>
 
