@@ -408,6 +408,11 @@
     .bonsai-wrap {
       display: none;
     }
+    
+    .bonsai-credit {
+      text-align: center;
+      width: 100%;
+    }
 
     /* show inline mobile bonsai */
     .bonsai-wrap-mobile {
