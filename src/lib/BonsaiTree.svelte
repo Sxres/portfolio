@@ -58,7 +58,7 @@
       max-width: 100vw;
       overflow: hidden;
       align-self: flex-start;
-      margin-left: -3rem;
+      margin-left: -2rem;
     }
   }
 
