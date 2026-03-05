@@ -56,7 +56,7 @@
       font-size: 0.55rem;
       line-height: 1.2;
       max-width: 100vw;
-      overflow: hidden;
+      overflow: visible;
       align-self: flex-start;
       margin-left: -6rem;
     }
