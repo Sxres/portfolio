@@ -411,6 +411,7 @@
 
     /* show inline mobile bonsai */
     .bonsai-wrap-mobile {
+      padding: 0.5 0 0.5rem;
       display: flex;
     }
 
