@@ -207,7 +207,7 @@
     align-items: flex-start;
     justify-content: flex-start;
     flex-direction: column;
-    padding: 2rem 0 0.5rem;
+    padding: 0.5rem 0 0.5rem;
     pointer-events: none;
   }
 

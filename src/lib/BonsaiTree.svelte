@@ -13,8 +13,9 @@
       const response = await fetch(`${apiUrl}/tree/instant`);
       const data = await response.json();
       const isMobile = window.innerWidth <= 768;
+      const maxChars = Math.floor(window.innerWidth / 8.5)
       const full = isMobile
-        ? data.tree.split('\n').map((line: string) => line.trimStart()).join('\n')
+        ? data.tree.split('\n').map((line: string) => line.trimStart().slice(0, maxChars)).join('\n')
         : data.tree;
       loading = false;
       for (let i = 0; i < full.length; i++) {
