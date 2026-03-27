@@ -1,6 +1,6 @@
 <script>
   import { onMount, onDestroy } from 'svelte';
-  export let speed = 1;
+  export let speed = 2;
   export let apiUrl = "https://bonsai-api-434709608207.northamerica-northeast2.run.app";
   
   let tree = "";
@@ -35,7 +35,7 @@
   });
 </script>
 
-<pre class="bonsai" class:loading>{tree}{#if !done && !loading}<span class="cursor">▌</span>{/if}</pre>
+<pre class="bonsai" class:loading>{tree}</pre>
 
 <style>
   .bonsai {
@@ -62,11 +62,11 @@
     }
   }
 
-  .cursor {
+  /*.cursor { blinking effect 
     display: inline-block;
     animation: blink 0.8s step-end infinite;
     -webkit-text-fill-color: var(--bonsai-mid);
-  }
+  }*/
 
   @keyframes blink {
     0%, 100% { opacity: 1; }
