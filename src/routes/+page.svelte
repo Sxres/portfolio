@@ -6,7 +6,8 @@
   import EmailIcon from '$lib/email.svg?raw';
   import ResumeIcon from '$lib/resume.svg?raw';
 
-  let name = "Hello, I'm Dragos Sorescu";
+  let firstName = "Hello,";
+  let lastName = "I'm Dragos";
   let role = "developer / student";
   let bio = [
   "Toronto-based full-stack machine learning developer with interests in UX, design, robotics, and low level systems.",
@@ -282,10 +283,11 @@
   }
 
   nav a {
-    color: var(--muted);
+    color: var(--text);
     text-decoration: none;
     font-size: 0.9rem;
     letter-spacing: 0.05em;
+    font-weight: 500;
   }
 
   nav a :global(svg) {
@@ -294,7 +296,7 @@
     transform: translateX(-4px) translateY(4px);
   }
 
-  nav a:hover { color: var(--nav-hover); }
+  nav a:hover { color: var(--muted); }
 
   .theme-btn {
     background: none;
@@ -318,21 +320,27 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 2.2rem;
+    gap: 2.0rem;
     padding: 4rem 0;
   }
 
-  .emoticon {
-    font-size: 2.8rem;
-    letter-spacing: -0.05em;
-    color: var(--text);
-    cursor: pointer;
-    user-select: none;
-    display: inline-block;
-    transition: transform 0.15s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+
+
+  .hero-header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1rem;
+    flex-wrap: wrap;
   }
 
-  .emoticon.pop { transform: scale(1.1); }
+  .hero-header-line {
+    font-size: clamp(2rem, 5vw, 4.5rem);
+    line-height: 1.0;
+    color: var(--text);
+    letter-spacing: -0.02em;
+    font-weight: normal;
+  }
 
   .hero-name {
     font-size: clamp(2rem, 5vw, 4.5rem);
@@ -340,6 +348,8 @@
     color: var(--text);
     letter-spacing: -0.02em;
     font-weight: normal;
+    display: block;
+    width: 100%;
   }
 
   .section-main-title {
@@ -349,14 +359,6 @@
     letter-spacing: -0.02em;
     font-weight: normal;
     margin-bottom: 1rem;
-  }
-
-  .hero-role {
-    font-size: 0.85rem;
-    color: var(--dim);
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    margin-bottom: 0.8rem;
   }
 
   .hero-bio {
@@ -374,11 +376,6 @@
     gap: 1.2rem;
     background: none;
     border: none;
-  }
-
-  .projects,
-  .projects * {
-    transition: none !important;
   }
 
   .project-card {
@@ -409,10 +406,16 @@
     height: 180px;
     object-fit: cover;
     display: block;
+    transition: transform 0.4s ease;
   }
   
   .thumb-wrap {
-  position: relative;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .project-card:hover .project-thumb {
+    transform: scale(1.15);
   }
   .project-meta {
     padding: 0.6rem 0.8rem;
@@ -646,9 +649,7 @@
       gap: 1.6rem;
     }
 
-    .emoticon {
-      font-size: 2rem;
-    }
+
 
     .site-footer {
       flex-direction: column;
@@ -689,21 +690,11 @@
   </div>
 
   <section class="hero">
-    <div>
-      <span
-        class="emoticon"
-        class:pop={animating}
-        on:click={cycleFace}
-        role="button"
-        tabindex="0"
-        on:keydown={(e) => e.key === 'Enter' && cycleFace()}
-      >{face}</span>
+    <div class="hero-header">
+      <span class="hero-header-line">{firstName}</span>
+      <h1 class="hero-name">{lastName}</h1>
     </div>
     <div>
-      <h1 class="hero-name">{name}</h1>
-    </div>
-    <div>
-      <div class="hero-role">{role}</div>
           {#each bio as paragraph}
         <p class="hero-bio" >{paragraph}</p>
       {/each}
@@ -752,7 +743,7 @@
   <footer class="site-footer">
     <div class="footer-meta">
       <p class="footer-line">Made By <span class="footer-name">Dragos Sorescu</span></p>
-      <p class="footer-line">Last Updated on March 26, 2026</p>
+      <p class="footer-line">Last Updated on March 27, 2026</p>
     </div>
     <div class="footer-icons">
       <a href="https://github.com/Sxres" target="_blank" rel="noopener" aria-label="GitHub">
