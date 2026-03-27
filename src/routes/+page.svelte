@@ -251,7 +251,7 @@
   .page {
     max-width: 780px;
     margin: 0;
-    margin-left: 6vw;
+    margin-left: 5vw;
     padding: 0 2rem;
     position: relative;
     z-index: 1;
