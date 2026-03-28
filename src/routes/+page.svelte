@@ -681,6 +681,7 @@
       order: -1;
       align-self: flex-start;
       margin-left: 0.4rem;
+      margin-bottom: 0.35rem;
       margin-right: 0;
       font-size: 0.72rem;
       padding: 0.24rem 0.62rem;
@@ -742,6 +743,7 @@
 
     .theme-btn {
       margin-left: 0.35rem;
+      margin-bottom: 0.3rem;
       margin-right: 0;
       font-size: 0.68rem;
       padding: 0.22rem 0.56rem;
