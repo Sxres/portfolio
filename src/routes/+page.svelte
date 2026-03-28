@@ -96,11 +96,11 @@
     {
       title: "Temperature Predictor",
       year: "2025",
-      desc: "End-to-end ML project covering data collection, regression model training, API serving with FastAPI, and containerized frontend/backend deployment with Docker Compose.",
+      desc: "Built and deployed a temperature forecasting app that turns historical weather data into fast, practical predictions.",
       tag: "Python / XGBoost / FastAPI /Docker / GCP / Streamlit / Matplotlib / Plotly / Shap",
       href: "https://github.com/Sxres/temperature_predictor_app",
       img: "/thumbnails/TempProject.png",
-      details: "Built a complete end-to-end machine learning pipeline for temperature forecasting. Collected and cleaned weather data, engineered time-based features, and trained an XGBoost regression model to predict future temperatures. Exposed model inference through a FastAPI endpoint and created a Streamlit frontend for interactive input and prediction visualization. Containerized both frontend and backend with Docker, then orchestrated the full stack with Docker Compose for one-command local startup. Deployed to cloud with Google Cloud Run",
+      details: "Built and shipped a temperature forecasting product from data preparation to cloud deployment. Owned model development, backend integration, and user-facing prediction workflows to deliver reliable forecasts in a simple web experience.",
     },
   ];
 
