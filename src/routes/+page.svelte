@@ -626,8 +626,14 @@
 
     /* show inline mobile bonsai */
     .bonsai-wrap-mobile {
-      padding: 0.5rem 0 0.5rem 0.45rem;
+      padding: 0.5rem 0;
       display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .bonsai-wrap-mobile :global(.bonsai) {
+      margin: 0 auto;
     }
 
     .page {
