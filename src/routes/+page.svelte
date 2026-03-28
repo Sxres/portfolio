@@ -69,7 +69,6 @@
     {
       title: "Playing Cards Detection",
       year: "2026",
-      desc: "YOLOv26 based playing card detection for ranks and suits, OpenCV used for poker hand rankings with the treys.",
       tag: "OpenCV / Yolo / NumPy",
       href: "https://github.com/Sxres/PlayingCardsDetection",
       img: "/thumbnails/PokerProject.png",
@@ -78,7 +77,6 @@
     {
       title: "Skin Cancer Classification Research",
       year: "2026",
-      desc: "DinoV2-based image classifier for skin cancer research - benign vs malignant detection from Stanford Multi-Modal AIMI dataset.",
       tag: "Yolo / Deep Learning / DinoV2 ",
       href: "https://github.com/Sxres/SkinCancerImageClassificationResearch",
       img: "/thumbnails/skincancer2.png",
@@ -87,7 +85,6 @@
     {
       title: "LotWatch",
       year: "2026",
-      desc: "Built a computer vision system in Python that processes parking lot video footage and classifies each space as occupied or empty on every frame.",
       tag: "Python / OpenCV / NumPy ",
       href: "https://github.com/Sxres/FunnyMarketNewsLetter",
       img: "/thumbnails/LotWatch.gif",
@@ -96,7 +93,6 @@
     {
       title: "Temperature Predictor",
       year: "2025",
-      desc: "Built and deployed a temperature forecasting app that turns historical weather data into fast, practical predictions.",
       tag: "Python / XGBoost / FastAPI /Docker / GCP / Streamlit / Matplotlib / Plotly / Shap",
       href: "https://github.com/Sxres/temperature_predictor_app",
       img: "/thumbnails/TempProject.png",
