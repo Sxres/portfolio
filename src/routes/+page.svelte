@@ -609,6 +609,11 @@
 
   /* mobile */
   @media (max-width: 768px) {
+    :global(html),
+    :global(body) {
+      overflow-x: hidden;
+    }
+
     /* hide desktop fixed bonsai */
     .bonsai-wrap {
       display: none;
@@ -628,10 +633,13 @@
     .page {
       margin-left: 0;
       padding: 0 1.2rem;
+      max-width: 100%;
+      overflow-x: clip;
     }
 
     header {
       width: 100%;
+      margin-left: 0;
       flex-wrap: wrap;
       gap: 1rem;
       padding: 1.2rem 0;
@@ -640,6 +648,24 @@
     nav {
       gap: 1.2rem;
       flex-wrap: wrap;
+    }
+
+    .projects {
+      grid-template-columns: 1fr;
+    }
+
+    .toolkit-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.9rem;
+      padding: 1rem;
+    }
+
+    .tool-item {
+      min-width: 0;
+    }
+
+    .tool-item span {
+      overflow-wrap: anywhere;
     }
 
     /* hero doesn't need min-height since bonsai is above it now */
@@ -654,6 +680,12 @@
     .site-footer {
       flex-direction: column;
       align-items: flex-start;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .toolkit-grid {
+      grid-template-columns: 1fr;
     }
   }
 </style>
