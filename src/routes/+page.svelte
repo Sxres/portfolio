@@ -655,7 +655,7 @@
     }
 
     nav a {
-      font-size: 0.7rem;
+      font-size: 0.76rem;
       letter-spacing: 0.02em;
       display: flex;
       align-items: center;
@@ -672,10 +672,11 @@
     }
 
     .theme-btn {
-      align-self: flex-end;
-      margin-right: 0.15rem;
-      font-size: 0.67rem;
-      padding: 0.22rem 0.55rem;
+      align-self: flex-start;
+      margin-left: 0;
+      margin-right: 0;
+      font-size: 0.72rem;
+      padding: 0.24rem 0.62rem;
     }
 
     .projects {
@@ -690,14 +691,14 @@
 
     .tool-item {
       min-width: 0;
-      font-size: 0.78rem;
+      font-size: 0.84rem;
       gap: 0.35rem;
     }
 
     .tool-item img {
-      width: 22px;
-      height: 22px;
-      flex: 0 0 22px;
+      width: 24px;
+      height: 24px;
+      flex: 0 0 24px;
     }
 
     .tool-item span {
@@ -729,13 +730,14 @@
     }
 
     nav a {
-      font-size: 0.66rem;
+      font-size: 0.72rem;
     }
 
     .theme-btn {
-      margin-right: 0.1rem;
-      font-size: 0.63rem;
-      padding: 0.2rem 0.5rem;
+      margin-left: 0;
+      margin-right: 0;
+      font-size: 0.68rem;
+      padding: 0.22rem 0.56rem;
     }
 
     .toolkit-grid {
@@ -745,14 +747,14 @@
     }
 
     .tool-item {
-      font-size: 0.73rem;
+      font-size: 0.79rem;
       gap: 0.3rem;
     }
 
     .tool-item img {
-      width: 20px;
-      height: 20px;
-      flex: 0 0 20px;
+      width: 22px;
+      height: 22px;
+      flex: 0 0 22px;
     }
   }
 </style>
