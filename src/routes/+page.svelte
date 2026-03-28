@@ -305,6 +305,7 @@
     cursor: pointer;
     font-size: 0.75rem;
     padding: 0.3rem 0.7rem;
+    margin-left: 0.7rem;
     letter-spacing: 0.08em;
     font-family: 'OverusedGrotesk', monospace;
   }
@@ -736,7 +737,7 @@
     }
 
     .theme-btn {
-      margin-left: 0.35rem;
+      margin-left: 0.5rem;
       margin-bottom: 0.3rem;
       margin-right: 0;
       font-size: 0.68rem;
