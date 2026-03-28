@@ -623,7 +623,7 @@
 
     /* show inline mobile bonsai */
     .bonsai-wrap-mobile {
-      padding: 0.5rem 0 0.5rem 0.45rem;
+      padding: 0.5rem 0 0.5rem 0.35rem;
       display: flex;
     }
 
