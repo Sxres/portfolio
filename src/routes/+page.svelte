@@ -626,7 +626,7 @@
 
     /* show inline mobile bonsai */
     .bonsai-wrap-mobile {
-      padding: 0.5 0 0.5rem;
+      padding: 0.5rem 0 0.5rem 0.45rem;
       display: flex;
     }
 
@@ -640,14 +640,42 @@
     header {
       width: 100%;
       margin-left: 0;
-      flex-wrap: wrap;
-      gap: 1rem;
-      padding: 1.2rem 0;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0.55rem;
+      padding: 1rem 1rem 0.85rem;
     }
 
     nav {
-      gap: 1.2rem;
-      flex-wrap: wrap;
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.35rem;
+      align-items: center;
+    }
+
+    nav a {
+      font-size: 0.7rem;
+      letter-spacing: 0.02em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.25rem;
+      white-space: nowrap;
+    }
+
+    nav a :global(svg) {
+      width: 13px;
+      height: 13px;
+      transform: none;
+      flex: 0 0 auto;
+    }
+
+    .theme-btn {
+      align-self: flex-end;
+      margin-right: 0.15rem;
+      font-size: 0.67rem;
+      padding: 0.22rem 0.55rem;
     }
 
     .projects {
@@ -655,13 +683,21 @@
     }
 
     .toolkit-grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 0.9rem;
-      padding: 1rem;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.7rem;
+      padding: 0.95rem;
     }
 
     .tool-item {
       min-width: 0;
+      font-size: 0.78rem;
+      gap: 0.35rem;
+    }
+
+    .tool-item img {
+      width: 22px;
+      height: 22px;
+      flex: 0 0 22px;
     }
 
     .tool-item span {
@@ -684,8 +720,39 @@
   }
 
   @media (max-width: 480px) {
+    header {
+      padding: 0.95rem 0.75rem 0.8rem;
+    }
+
+    nav {
+      gap: 0.28rem;
+    }
+
+    nav a {
+      font-size: 0.66rem;
+    }
+
+    .theme-btn {
+      margin-right: 0.1rem;
+      font-size: 0.63rem;
+      padding: 0.2rem 0.5rem;
+    }
+
     .toolkit-grid {
-      grid-template-columns: 1fr;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.6rem;
+      padding: 0.85rem;
+    }
+
+    .tool-item {
+      font-size: 0.73rem;
+      gap: 0.3rem;
+    }
+
+    .tool-item img {
+      width: 20px;
+      height: 20px;
+      flex: 0 0 20px;
     }
   }
 </style>
