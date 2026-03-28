@@ -200,6 +200,11 @@
     overflow-x: hidden;
   }
 
+  :global(body) {
+    --theme-transition-speed: 0.3s;
+    --theme-transition-ease: ease;
+  }
+
   /* desktop bonsai */
   .bonsai-wrap {
     position: fixed;
@@ -290,6 +295,14 @@
     width: 18px;
     height: 18px;
     transform: translateX(-4px) translateY(4px);
+  }
+
+  nav a :global(svg),
+  nav a :global(svg *),
+  .footer-icons a :global(svg),
+  .footer-icons a :global(svg *) {
+    transition: color var(--theme-transition-speed) var(--theme-transition-ease), fill var(--theme-transition-speed) var(--theme-transition-ease), stroke var(--theme-transition-speed) var(--theme-transition-ease), opacity var(--theme-transition-speed) var(--theme-transition-ease);
+    transition-delay: 0s !important;
   }
 
   nav a:hover { color: var(--muted); }
