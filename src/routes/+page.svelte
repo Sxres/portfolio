@@ -624,6 +624,10 @@
       overflow-x: hidden;
     }
 
+    :global(body) {
+      --theme-transition-speed: 0.2s;
+    }
+
     /* hide desktop fixed bonsai */
     .bonsai-wrap {
       display: none;
