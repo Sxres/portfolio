@@ -200,6 +200,10 @@
     overflow-x: hidden;
   }
 
+  :global(body) {
+    --theme-transition-speed: 0.3s;
+    --theme-transition-ease: ease;
+  }
 
   /* desktop bonsai */
   .bonsai-wrap {
@@ -393,6 +397,7 @@
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
     cursor: pointer;
     font: inherit;
     text-align: left;
@@ -411,6 +416,7 @@
     height: 180px;
     object-fit: cover;
     display: block;
+    transition: transform 0.4s ease;
   }
   
   .thumb-wrap {
