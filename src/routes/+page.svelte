@@ -198,9 +198,6 @@
     line-height: 1.6;
     cursor: default;
     overflow-x: hidden;
-  }
-
-  :global(body) {
     --theme-transition-speed: 0.3s;
     --theme-transition-ease: ease;
   }
@@ -259,7 +256,7 @@
     z-index: 1;
   }
 
-  /* header */
+  /* DESKTOP header */
   header {
     position: sticky;
     top: 0;
@@ -273,6 +270,8 @@
     border-bottom: 1px solid var(--border);
     width: calc(100vw - 12vw);
     margin-left: 6vw;
+    --theme-transition-speed: 0.3s;
+    --theme-transition-ease: ease;
   }
 
   nav {
@@ -658,6 +657,8 @@
       align-items: stretch;
       gap: 0.55rem;
       padding: 1rem 1rem 0.85rem;
+      --theme-transition-speed: 0.3s;
+
     }
 
     nav {
