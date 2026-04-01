@@ -200,10 +200,6 @@
     overflow-x: hidden;
   }
 
-  :global(body) {
-    --theme-transition-speed: 0.3s;
-    --theme-transition-ease: ease;
-  }
 
   /* desktop bonsai */
   .bonsai-wrap {
@@ -397,7 +393,6 @@
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    transition: border-color 0.2s;
     cursor: pointer;
     font: inherit;
     text-align: left;
@@ -416,7 +411,6 @@
     height: 180px;
     object-fit: cover;
     display: block;
-    transition: transform 0.4s ease;
   }
   
   .thumb-wrap {
@@ -614,7 +608,7 @@
   }
 
   .footer-icons a:hover :global(svg) {
-    opacity: 1;
+    opacity: 0.65;
   }
 
   /* mobile */
