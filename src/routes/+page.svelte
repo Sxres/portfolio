@@ -86,7 +86,7 @@
       title: "LotWatch",
       year: "2026",
       tag: "Python / OpenCV / NumPy ",
-      href: "https://github.com/Sxres/FunnyMarketNewsLetter",
+      href: "https://github.com/Sxres/LotWatch",
       img: "/thumbnails/LotWatch.gif",
       details: "Built a computer vision system in Python that processes parking lot video footage and classifies each space as occupied or empty on every frame using MOG2 background subtraction and Laplacian variance.",
     },
@@ -861,7 +861,7 @@
   <footer class="site-footer">
     <div class="footer-meta">
       <p class="footer-line">Made By <span class="footer-name">Dragos Sorescu</span></p>
-      <p class="footer-line">Last Updated on March 27, 2026</p>
+      <p class="footer-line">Last Updated on April 1, 2026</p>
     </div>
     <div class="footer-icons">
       <a href="https://github.com/Sxres" target="_blank" rel="noopener" aria-label="GitHub">
