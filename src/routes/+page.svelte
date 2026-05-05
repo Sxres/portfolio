@@ -804,7 +804,7 @@
   <footer class="site-footer">
     <div class="footer-meta">
       <p class="footer-line">Made By <span class="footer-name">Dragos Sorescu</span></p>
-      <p class="footer-line">Last Updated on April 2, 2026</p>
+      <p class="footer-line">Last Updated on May 5, 2026</p>
     </div>
     <div class="footer-icons">
       <a href="https://github.com/Sxres" target="_blank" rel="noopener" aria-label="GitHub">
