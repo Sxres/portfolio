@@ -10,9 +10,8 @@
   let firstName = "Hello,";
   let lastName = "I'm Dragos";
   let bio = [
-    "Toronto-based full-stack machine learning developer with interests in UX, design, robotics, and low level systems.",
-    "I'm a third year Computer Science student at Durham College looking to improve my skills. Beyond programming, I enjoy rock climbing.",
-    "Welcome to my website."
+    "Toronto-based full-stack machine learning developer with interests in robotics, agents, and low level systems.",
+    "I'm a third year Computer Science student at Durham College looking to connect with cool people! Beyond programming, I enjoy rock climbing.",
   ];
 
   // ─── Nav links ────────────────────────────────────────────────────────────────
@@ -100,21 +99,8 @@
     return tagString.split('/').map((t) => t.trim()).filter(Boolean);
   }
 
-  // ─── Unused / reserved ────────────────────────────────────────────────────────
-  // cycleFace was originally wired to an emoji in the hero but is currently unused.
-  const faces = ["= ]", "= )", "= D"];
-  let faceIndex = 0;
-  let face = faces[0];
-  let animating = false;
   let interval = 0;
 
-  function cycleFace() {
-    if (animating) return;
-    animating = true;
-    faceIndex = (faceIndex + 1) % faces.length;
-    face = faces[faceIndex];
-    setTimeout(() => (animating = false), 300);
-  }
 
   // ─── Lifecycle ────────────────────────────────────────────────────────────────
   onMount(() => {
@@ -128,10 +114,28 @@
 </script>
 
 <style>
-  /* ─── Font ───────────────────────────────────────────────────────────────────── */
+  /* ─── Fonts ───────────────────────────────────────────────────────────────────── */
   @font-face {
     font-family: 'OverusedGrotesk';
     src: url('/fonts/OverusedGrotesk-Book.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+  }
+  @font-face{
+    font-family: 'Geist-Light';
+    src: url('/fonts/Geist-Light.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+  }
+    @font-face{
+    font-family: 'Geist-Regular';
+    src: url('/fonts/Geist-Regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+  }
+    @font-face{
+    font-family: 'Geist-Thin';
+    src: url('/fonts/Geist-Thin.otf') format('opentype');
     font-weight: normal;
     font-style: normal;
   }
@@ -197,7 +201,7 @@
   :global(body) {
     background: var(--bg);
     color: var(--text);
-    font-family: 'OverusedGrotesk', monospace;
+    font-family: 'OverusedGrotesk', monospace; 
     font-size: 16px;
     line-height: 1.6;
     cursor: default;
