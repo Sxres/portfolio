@@ -22,6 +22,17 @@
     { label: "Email",    href: "mailto:sorescudragos847@gmail.com",            raw: EmailIcon    },
   ];
 
+  // ─── Currently Working On ──────────────────────────────────────────────────────
+  let workingOn = {
+    title: "Dimas",
+    href: "https://github.com/Sxres/FunnyMarketNewsLetter",
+    img: "/thumbnails/MoonAnimation.gif",
+    bio: [
+      "Claude-powered stock research agent. Ask about any ticker and it fetches live price, news, fundamentals & insider trades then writes a professional or WSB-style analysis. No pre-ingestion, all on-demand.",
+      "Looking to implement AWS services to fully deploy a working product.",
+    ],
+  };
+
   // ─── Toolkit icons (devicons CDN) ─────────────────────────────────────────────
   let tools = [
     // languages
@@ -40,9 +51,10 @@
     // tools & platforms
     { label: "Docker",       src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg" },
     { label: "GCP",          src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/googlecloud/googlecloud-original.svg" },
+    { label: "AWS",          src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" },
     { label: "MySQL",        src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" },
     { label: "PostgreSQL",   src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg" },
-    { label: "Jenkins",      src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jenkins/jenkins-original.svg" },
+    
   ];
 
   // ─── Projects ─────────────────────────────────────────────────────────────────
@@ -382,6 +394,77 @@
     margin-bottom: 1rem;
   }
 
+  /* ─── Currently Working On ───────────────────────────────────────────────────── */
+  .working-on-outer {
+    margin-top: 3rem;
+    margin-bottom: 6rem;
+  }
+
+  .working-on-inner {
+    text-decoration: none;
+    color: inherit;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    cursor: pointer;
+    font: inherit;
+    text-align: left;
+    width: 100%;
+    transition: border-color 0.3s ease;
+  }
+
+  .working-on-outer:hover .working-on-inner {
+    border-color: var(--muted);
+  }
+
+  .working-on-inner .thumb-wrap {
+    width: 220px;
+    height: 220px;
+    flex-shrink: 0;
+  }
+
+  .working-on-inner .project-thumb {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 85% 60%;
+    display: block;
+    transition: transform 0.3s ease;
+    transform: scale(1.15);
+  }
+
+  .working-on-outer:hover .project-thumb {
+    transform: scale(1.2);
+  }
+
+  .working-on-inner-info {
+    padding: 1rem 1.2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 0.6rem;
+    flex: 1;
+    min-width: 0;
+  }
+
+  .working-on-title {
+    font-size: 2rem;
+    color: var(--text);
+    letter-spacing: 0.02em;
+    font-weight: normal;
+    margin: 0;
+  }
+
+  .working-on-bio {
+    font-size: 0.9rem;
+    color: var(--muted);
+    line-height: 1.4;
+    margin: 0;
+    word-wrap: break-word;
+  }
+
   /* ─── Toolkit ─────────────────────────────────────────────────────────────────── */
   .toolkit {
     margin-top: 3rem;
@@ -656,6 +739,15 @@
     /* Stack project cards to single column. */
     .projects { grid-template-columns: 1fr; }
 
+    .working-on-inner {
+      flex-direction: column;
+    }
+
+    .working-on-inner .thumb-wrap {
+      width: 100%;
+      height: 180px;
+    }
+
     .toolkit-grid {
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 0.7rem;
@@ -759,6 +851,22 @@
         <p class="hero-bio">{paragraph}</p>
       {/each}
     </div>
+  </section>
+
+  <!-- ─── Currently Working On ──────────────────────────────────────────────────── -->
+  <section class="working-on-outer">
+    <h1 class="section-main-title">Currently Working On</h1>
+    <a href={workingOn.href} target="_blank" rel="noopener" class="working-on-inner">
+      <div class="thumb-wrap">
+        <img class="project-thumb" src={workingOn.img} alt={workingOn.title} />
+      </div>
+      <div class="working-on-inner-info">
+        <h2 class="working-on-title">{workingOn.title}</h2>
+        {#each workingOn.bio as line}
+          <p class="working-on-bio">{line}</p>
+        {/each}
+      </div>
+    </a>
   </section>
 
   <!-- ─── Toolkit ───────────────────────────────────────────────────────────────── -->
