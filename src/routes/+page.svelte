@@ -412,7 +412,7 @@
     font: inherit;
     text-align: left;
     width: 100%;
-    transition: border-color 0.3s ease;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
   }
 
   .working-on-outer:hover .working-on-inner {
