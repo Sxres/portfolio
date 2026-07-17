@@ -3,7 +3,6 @@
   import BonsaiTree from '$lib/BonsaiTree.svelte';
   import GithubIcon from '$lib/github.svg?raw';
   import LinkedInIcon from '$lib/linkedin.svg?raw';
-  import EmailIcon from '$lib/email.svg?raw';
   import ResumeIcon from '$lib/resume.svg?raw';
 
   // ─── Hero content ─────────────────────────────────────────────────────────────
@@ -18,8 +17,7 @@
   let links = [
     { label: "GitHub",   href: "https://github.com/Sxres",                   raw: GithubIcon   },
     { label: "LinkedIn", href: "https://www.linkedin.com/in/dragos-sorescu/", raw: LinkedInIcon },
-    { label: "Resume",   href: "/Dragos Sorescu Resume.pdf",                  raw: ResumeIcon   },
-    { label: "Email",    href: "mailto:sorescudragos847@gmail.com",            raw: EmailIcon    },
+    { label: "Resume",   href: "/Dragos Sorescu Resume.pdf",                  raw: ResumeIcon   }
   ];
 
   // ─── Currently Working On ──────────────────────────────────────────────────────
@@ -54,7 +52,7 @@
     { label: "AWS",          src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" },
     { label: "MySQL",        src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" },
     { label: "PostgreSQL",   src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg" },
-    
+
   ];
 
   // ─── Projects ─────────────────────────────────────────────────────────────────
@@ -161,12 +159,7 @@
 
   /* Smooth color transitions on every element for theme switching. */
   :global(*, *::before, *::after) {
-    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
-  }
-
-  /* The bonsai uses a gradient that can't transition cleanly, so disable it. */
-  :global(.bonsai) {
-    transition: none !important;
+    transition: background-color 0.3s var(--ease-out-quart), border-color 0.3s var(--ease-out-quart), color 0.3s var(--ease-out-quart);
   }
 
   :global(html) {
@@ -192,6 +185,14 @@
     --ascii-hover: #888;
     --nav-hover: #d4d0c8;
     --bonsai-color: #d4d0c8;
+    --bonsai-branch-1: oklch(66% 0.1 55);
+    --bonsai-branch-2: oklch(72% 0.09 67);
+    --bonsai-branch-3: oklch(55% 0.075 42);
+    --bonsai-leaf-1: oklch(68% 0.17 30);
+    --bonsai-leaf-2: oklch(58% 0.15 20);
+    --bonsai-leaf-3: oklch(74% 0.15 52);
+    --bonsai-pot: oklch(66% 0.018 260);
+    --bonsai-soil: oklch(54% 0.065 88);
   }
 
   :global(body.light) {
@@ -207,19 +208,30 @@
     --ascii-hover: #5e5e5e;
     --nav-hover: #1a1a1a;
     --bonsai-color: #1a1a1a;
+    --bonsai-branch-1: oklch(40% 0.1 55);
+    --bonsai-branch-2: oklch(46% 0.12 67);
+    --bonsai-branch-3: oklch(31% 0.08 42);
+    --bonsai-leaf-1: oklch(48% 0.19 30);
+    --bonsai-leaf-2: oklch(39% 0.16 20);
+    --bonsai-leaf-3: oklch(58% 0.18 52);
+    --bonsai-pot: oklch(31% 0.015 260);
+    --bonsai-soil: oklch(29% 0.04 88);
   }
 
   /* ─── Base body ───────────────────────────────────────────────────────────────── */
   :global(body) {
     background: var(--bg);
     color: var(--text);
-    font-family: 'OverusedGrotesk', monospace; 
+    font-family: 'OverusedGrotesk', monospace;
     font-size: 16px;
     line-height: 1.6;
     cursor: default;
     overflow-x: hidden;
     --theme-transition-speed: 0.3s;
-    --theme-transition-ease: ease;
+    --theme-transition-ease: var(--ease-out-quart);
+    --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+    --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
+    --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   /* ─── Page layout ─────────────────────────────────────────────────────────────── */
@@ -227,8 +239,8 @@
   .page {
     max-width: 780px;
     margin: 0;
-    margin-left: 5vw;
-    padding: 0 2rem;
+    margin-left: 2vw;
+    padding: 0;
     position: relative;
     z-index: 1;
   }
@@ -240,59 +252,98 @@
     background: var(--bg);
     z-index: 10;
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
-    gap: 2rem;
-    padding: 2rem 0;
+    gap: 1.5rem;
+    padding: 1.2rem 6vw;
     border-bottom: 1px solid var(--border);
-    width: calc(100vw - 12vw);
-    margin-left: 6vw;
+    width: 100%;
+    margin-left: 0;
     --theme-transition-speed: 0.3s;
-    --theme-transition-ease: ease;
+    --theme-transition-ease: var(--ease-out-quart);
   }
 
-  nav {
+  .site-identity {
+    color: var(--text);
+    flex: 0 0 auto;
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    text-decoration: none;
+  }
+
+  .header-actions {
     display: flex;
-    flex: 1;
     align-items: center;
-    gap: 1.8rem;
+    justify-content: flex-end;
+    gap: 0.8rem;
   }
 
-  nav a {
+  .header-actions nav {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .header-actions nav a {
     color: var(--text);
     text-decoration: none;
-    font-size: 0.9rem;
-    letter-spacing: 0.05em;
+    font-size: 0.875rem;
+    letter-spacing: 0.01em;
     font-weight: 500;
+    min-height: 2.75rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
   }
 
-  nav a:hover { color: var(--muted); }
+  .header-actions nav a:hover { color: var(--muted); }
 
-  nav a :global(svg) {
-    width: 18px;
-    height: 18px;
-    transform: translateX(-4px) translateY(4px);
+  .header-actions nav a :global(svg) {
+    width: 16px;
+    height: 16px;
+    transform: none;
+  }
+
+  .header-email {
+    min-height: 2.75rem;
+    padding: 0.55rem 0.75rem;
+    border: 1px solid var(--text);
+    color: var(--bg);
+    background: var(--text);
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition:
+      transform 140ms var(--ease-out-quart),
+      background-color var(--theme-transition-speed) var(--theme-transition-ease),
+      color var(--theme-transition-speed) var(--theme-transition-ease);
+  }
+
+  .header-email:is(:hover, :focus-visible) {
+    background: transparent;
+    color: var(--text);
+    transform: translateY(-1px);
   }
 
   /* SVG icon color transitions for nav and footer during theme switch. */
-  nav a :global(svg),
-  nav a :global(svg *),
-  .footer-icons a :global(svg),
-  .footer-icons a :global(svg *) {
+  .header-actions nav a :global(svg),
+  .header-actions nav a :global(svg *) {
     transition: color var(--theme-transition-speed) var(--theme-transition-ease), fill var(--theme-transition-speed) var(--theme-transition-ease), stroke var(--theme-transition-speed) var(--theme-transition-ease), opacity var(--theme-transition-speed) var(--theme-transition-ease);
     transition-delay: 0s !important;
   }
 
   /* Dark/light toggle button in the header. */
   .theme-btn {
-    background: none;
+    min-height: 2.75rem;
+    background: transparent;
     border: 1px solid var(--border);
     color: var(--muted);
     cursor: pointer;
-    font-size: 0.75rem;
-    padding: 0.3rem 0.7rem;
-    margin-left: 0.7rem;
-    letter-spacing: 0.08em;
+    font-size: 0.875rem;
+    padding: 0.4rem 0.65rem;
+    margin: 0;
+    letter-spacing: 0.02em;
     font-family: 'OverusedGrotesk', monospace;
   }
 
@@ -301,14 +352,16 @@
     border-color: var(--text);
   }
 
+  .theme-btn:active { transform: scale(0.97); }
+
   /* ─── Bonsai tree ─────────────────────────────────────────────────────────────── */
   /* Desktop: fixed to the right half of the viewport, behind page content. */
   .bonsai-wrap {
     position: fixed;
     right: 0;
-    top: 0;
-    height: 81vh;
-    width: 55vw;
+    top: 8rem;
+    height: calc(81vh - 6rem);
+    width: 57vw;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -319,29 +372,9 @@
     overflow: visible;
   }
 
-  /* Mobile: rendered inline above the hero instead (see media query). */
-  .bonsai-wrap-mobile {
-    display: none;
-    width: 100%;
-    overflow: hidden;
-    align-items: flex-start;
-    justify-content: flex-start;
-    flex-direction: column;
-    padding: 0;
-    pointer-events: none;
-    margin-top: -5rem;
+  @media (min-width: 769px) {
+    .bonsai-wrap { transform: translate(0, 2rem); }
   }
-
-  .bonsai-credit {
-    font-size: 0.65rem;
-    color: var(--dim);
-    text-decoration: none;
-    letter-spacing: 0.04rem;
-    margin-top: 0.4rem;
-    pointer-events: auto;
-  }
-
-  .bonsai-credit:hover { color: var(--text); }
 
   /* ─── Hero ────────────────────────────────────────────────────────────────────── */
   .hero {
@@ -349,8 +382,16 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 2rem;
     padding: 4rem 0;
+  }
+
+  .hero-copy {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: min(100%, 44rem);
+    padding: clamp(1.25rem, 2.5vw, 2rem);
+    background: var(--card-bg);
   }
 
   .hero-header {
@@ -412,11 +453,15 @@
     font: inherit;
     text-align: left;
     width: 100%;
-    transition: background-color 0.3s ease, border-color 0.3s ease;
+    transition:
+      transform 220ms var(--ease-out-quint),
+      background-color 180ms var(--ease-out-quart),
+      border-color 180ms var(--ease-out-quart);
   }
 
-  .working-on-outer:hover .working-on-inner {
+  .working-on-inner:is(:hover, :focus-visible) {
     border-color: var(--muted);
+    transform: translateY(-2px);
   }
 
   .working-on-inner .thumb-wrap {
@@ -431,11 +476,11 @@
     object-fit: cover;
     object-position: 85% 60%;
     display: block;
-    transition: transform 0.3s ease;
+    transition: transform 260ms var(--ease-out-expo);
     transform: scale(1.15);
   }
 
-  .working-on-outer:hover .project-thumb {
+  .working-on-inner:is(:hover, :focus-visible) .project-thumb {
     transform: scale(1.2);
   }
 
@@ -476,6 +521,7 @@
     gap: 1.2rem;
     border: 1px solid var(--border);
     border-radius: 8px;
+    background: var(--card-bg);
     padding: 1.5rem;
   }
 
@@ -512,14 +558,20 @@
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    transition: background-color 0.3s ease, border-color 0.3s ease;
+    transition:
+      transform 220ms var(--ease-out-quint),
+      background-color 180ms var(--ease-out-quart),
+      border-color 180ms var(--ease-out-quart);
     cursor: pointer;
     font: inherit;
     text-align: left;
     width: 100%;
   }
 
-  .project-card:hover { border-color: var(--muted); }
+  .project-card:is(:hover, :focus-visible) {
+    border-color: var(--muted);
+    transform: translateY(-2px);
+  }
 
   /* Thumbnail wrapper — overflow:hidden clips the zoom effect. */
   .thumb-wrap {
@@ -532,11 +584,11 @@
     height: 180px;
     object-fit: cover;
     display: block;
-    transition: transform 0.3s ease;
+    transition: transform 260ms var(--ease-out-expo);
   }
 
   /* Zoom thumbnail on hover to signal interactivity behind the overlay. */
-  .project-card:hover .project-thumb { transform: scale(1.15); }
+  .project-card:is(:hover, :focus-visible) .project-thumb { transform: scale(1.15); }
 
   /* Tag pills overlaid on the thumbnail (bottom-left corner). */
   .project-tags {
@@ -545,6 +597,7 @@
     left: 0.5rem;
     display: flex;
     gap: 0.4rem;
+    transition: opacity 160ms var(--ease-out-quart);
   }
 
   .tag {
@@ -557,9 +610,8 @@
   }
 
   /* Fade tags out when the description overlay appears. */
-  .project-card:hover .project-tags {
+  .project-card:is(:hover, :focus-visible) .project-tags {
     opacity: 0;
-    transition: opacity 0.3s ease;
   }
 
   /* Dark overlay that reveals the project description on hover. */
@@ -568,7 +620,7 @@
     inset: 0;
     background: rgba(0,0,0,0.72);
     opacity: 0;
-    transition: opacity 0.3s ease;
+    transition: opacity 180ms var(--ease-out-quart);
     z-index: 2;
     display: flex;
     align-items: flex-end;
@@ -576,7 +628,7 @@
     padding: 0.9rem;
   }
 
-  .project-card:hover .card-overlay { opacity: 1; }
+  .project-card:is(:hover, :focus-visible) .card-overlay { opacity: 1; }
 
   .card-overlay-text {
     color: rgba(255,255,255,0.88);
@@ -609,57 +661,83 @@
 
   /* ─── Footer ──────────────────────────────────────────────────────────────────── */
   .site-footer {
-    margin-top: 3.25rem;
-    margin-bottom: 1.25rem;
-    border: 1px solid var(--card-border);
-    border-radius: 8px;
-    background: var(--bg);
-    padding: 1.1rem 1.2rem;
+    margin-top: 5rem;
+    margin-bottom: 1.5rem;
+    border-top: 1px solid var(--border);
+    padding: 1.25rem 0 0;
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    gap: 1rem;
+    align-items: flex-end;
+    gap: 1.5rem;
   }
 
   .footer-meta {
     display: flex;
     flex-direction: column;
-    gap: 0.35rem;
+    gap: 0.25rem;
   }
 
-  .footer-line {
-    font-size: 0.95rem;
-    letter-spacing: 0.01em;
+  .footer-prompt {
+    color: var(--muted);
+    font-size: 0.875rem;
+    line-height: 1.4;
+  }
+
+  .footer-email {
     color: var(--text);
-    font-weight: 400;
+    width: fit-content;
+    font-size: clamp(1.25rem, 2.2vw, 1.75rem);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    text-decoration: none;
   }
 
-  .footer-name {
-    color: var(--text);
-    font-weight: 400;
+  .footer-email span {
+    display: inline-block;
+    margin-left: 0.15em;
+    transition: transform 180ms cubic-bezier(0.16, 1, 0.3, 1);
   }
 
-  .footer-icons {
+  .footer-email:hover span {
+    transform: translate(0.14em, -0.14em);
+  }
+
+  .footer-links {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 0.8rem;
   }
 
-  .footer-icons a {
+  .footer-links a {
     color: var(--text);
-    text-decoration: none;
+    min-height: 2.75rem;
     display: inline-flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
+    font-size: 0.875rem;
+    text-decoration: none;
   }
 
-  .footer-icons a :global(svg) {
-    width: 22px;
-    height: 22px;
-    opacity: 0.95;
+  .footer-links a:hover {
+    color: var(--muted);
   }
 
-  .footer-icons a:hover :global(svg) { opacity: 0.65; }
+  :global(a:focus-visible),
+  button:focus-visible {
+    outline: 2px solid var(--text);
+    outline-offset: 4px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    :global(*, *::before, *::after) {
+      scroll-behavior: auto !important;
+      transition-duration: 0.01ms !important;
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+    }
+  }
 
   /* ─── Mobile (≤ 768px) ────────────────────────────────────────────────────────── */
   @media (max-width: 768px) {
@@ -672,10 +750,17 @@
       --theme-transition-speed: 0.3s;
     }
 
-    /* Switch from fixed desktop bonsai to inline mobile bonsai above the hero. */
-    .bonsai-wrap        { display: none; }
-    .bonsai-wrap-mobile { padding: 0.5rem 0 0.5rem 0.35rem; display: flex; }
-    .bonsai-credit      { text-align: center; width: 100%; }
+    /* The same generated tree moves inline above the hero on compact screens. */
+    .bonsai-wrap {
+      position: relative;
+      inset: auto;
+      width: 100%;
+      height: auto;
+      min-height: 19rem;
+      padding: 1.25rem 0 0.5rem;
+      overflow: hidden;
+      justify-content: flex-start;
+    }
 
     .page {
       margin-left: 0;
@@ -687,23 +772,28 @@
     header {
       width: 100%;
       margin-left: 0;
-      flex-direction: column;
-      align-items: stretch;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
       gap: 0.55rem;
-      padding: 1rem 1rem 0.85rem;
+      padding: 0.85rem 1rem;
       --theme-transition-speed: 0.3s;
     }
 
-    nav {
+    .header-actions { display: contents; }
+
+    .header-actions nav {
+      grid-column: 1 / -1;
+      grid-row: 2;
       width: 100%;
       display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 0.35rem;
       align-items: center;
     }
 
-    nav a {
-      font-size: 0.76rem;
+    .header-actions nav a {
+      font-size: 0.8rem;
       letter-spacing: 0.02em;
       display: flex;
       align-items: center;
@@ -712,22 +802,20 @@
       white-space: nowrap;
     }
 
-    nav a :global(svg) {
-      width: 13px;
-      height: 13px;
+    .header-actions nav a :global(svg) {
+      width: 14px;
+      height: 14px;
       transform: none;
       flex: 0 0 auto;
     }
 
     .theme-btn {
-      order: -1;
-      align-self: flex-start;
-      margin-left: 0.4rem;
-      margin-bottom: 0.35rem;
-      margin-right: 0;
-      font-size: 0.72rem;
-      padding: 0.24rem 0.62rem;
+      grid-column: 2;
+      grid-row: 1;
+      font-size: 0.875rem;
     }
+
+    .header-email { grid-column: 1; grid-row: 1; width: fit-content; }
 
     /* Hero doesn't need min-height since the bonsai is inline above it. */
     .hero {
@@ -771,22 +859,25 @@
     .site-footer {
       flex-direction: column;
       align-items: flex-start;
+      gap: 0.75rem;
+      margin-top: 4rem;
+    }
+
+    .footer-links {
+      justify-content: flex-start;
     }
   }
 
   /* ─── Mobile (≤ 480px) ────────────────────────────────────────────────────────── */
   @media (max-width: 480px) {
-    header { padding: 0.95rem 0.75rem 0.8rem; }
+    header { padding: 0.85rem 0.75rem; }
 
-    nav     { gap: 0.28rem; }
-    nav a   { font-size: 0.72rem; }
+    .header-actions nav     { gap: 0.28rem; }
+    .header-actions nav a   { font-size: 0.875rem; }
 
     .theme-btn {
-      margin-left: 0.5rem;
-      margin-bottom: 0.3rem;
-      margin-right: 0;
-      font-size: 0.68rem;
-      padding: 0.22rem 0.56rem;
+      font-size: 0.75rem;
+      padding: 0.4rem 0.55rem;
     }
 
     .toolkit-grid {
@@ -808,48 +899,50 @@
   }
 </style>
 
-<!-- ─── Desktop bonsai (fixed right, behind content) ──────────────────────────── -->
-<div class="bonsai-wrap">
-  <BonsaiTree speed={1}/>
-  <a href="https://github.com/Ben-Edwards44/PyBonsai" target="_blank" rel="noopener" class="bonsai-credit">
-    procedurally generated bonsai by PyBonsai
-  </a>
-</div>
-
 <header>
-  <nav>
-    {#each links as link}
-      <a href={link.href} target="_blank" rel="noopener">
-        {@html link.raw}
-        {link.label}
-      </a>
-    {/each}
-  </nav>
-  <button class="theme-btn" on:click={toggleTheme}>
+  <a class="site-identity" href="/" aria-label="Dragos Sorescu, home">Dragos Sorescu</a>
+  <div class="header-actions">
+    <nav aria-label="Profile links">
+      {#each links as link}
+        <a href={link.href} target="_blank" rel="noopener">
+          {@html link.raw}
+          {link.label}
+        </a>
+      {/each}
+    </nav>
+    <a class="header-email" href="mailto:sorescudragos847@gmail.com">Let’s talk</a>
+  </div>
+  <button
+    class="theme-btn"
+    on:click={toggleTheme}
+    aria-label={`Switch to ${dark ? 'light' : 'dark'} theme`}
+  >
     {dark ? 'light' : 'dark'}
   </button>
 </header>
 
+<!-- Fixed beside the hero on desktop; inline above it on compact screens. -->
+<div class="bonsai-wrap">
+  <BonsaiTree
+    speed={1}
+    creditHref="https://github.com/Ben-Edwards44/PyBonsai"
+    creditLabel="browser-native bonsai adapted from PyBonsai"
+  />
+</div>
+
 <div class="page">
-
-  <!-- ─── Mobile bonsai (inline above hero) ───────────────────────────────────── -->
-  <div class="bonsai-wrap-mobile">
-    <BonsaiTree speed={1}/>
-    <a href="https://github.com/Ben-Edwards44/PyBonsai" target="_blank" rel="noopener" class="bonsai-credit">
-      procedurally generated bonsai by PyBonsai
-    </a>
-  </div>
-
   <!-- ─── Hero ─────────────────────────────────────────────────────────────────── -->
   <section class="hero">
-    <div class="hero-header">
-      <span class="hero-header-line">{firstName}</span>
-      <h1 class="hero-name">{lastName}</h1>
-    </div>
-    <div>
-      {#each bio as paragraph}
-        <p class="hero-bio">{paragraph}</p>
-      {/each}
+    <div class="hero-copy">
+      <div class="hero-header">
+        <span class="hero-header-line">{firstName}</span>
+        <h1 class="hero-name">{lastName}</h1>
+      </div>
+      <div>
+        {#each bio as paragraph}
+          <p class="hero-bio">{paragraph}</p>
+        {/each}
+      </div>
     </div>
   </section>
 
@@ -915,20 +1008,14 @@
   <!-- ─── Footer ────────────────────────────────────────────────────────────────── -->
   <footer class="site-footer">
     <div class="footer-meta">
-      <p class="footer-line">Made By <span class="footer-name">Dragos Sorescu</span></p>
-      <p class="footer-line">Last Updated on May 5, 2026</p>
+      <p class="footer-prompt">Have an ambitious system in mind?</p>
+      <a class="footer-email" href="mailto:sorescudragos847@gmail.com">Let’s build it together <span aria-hidden="true">↗</span></a>
     </div>
-    <div class="footer-icons">
-      <a href="https://github.com/Sxres" target="_blank" rel="noopener" aria-label="GitHub">
-        {@html GithubIcon}
-      </a>
-      <a href="https://www.linkedin.com/in/dragos-sorescu/" target="_blank" rel="noopener" aria-label="LinkedIn">
-        {@html LinkedInIcon}
-      </a>
-      <a href="mailto:sorescudragos847@gmail.com" aria-label="Email">
-        {@html EmailIcon}
-      </a>
-    </div>
+    <nav class="footer-links" aria-label="Footer links">
+      <a href="https://github.com/Sxres" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/dragos-sorescu/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="/Dragos Sorescu Resume.pdf" target="_blank" rel="noopener">Résumé</a>
+    </nav>
   </footer>
 
 </div>
