@@ -1,47 +1,33 @@
+# Dragos Sorescu — Portfolio
 
-![port](https://github.com/user-attachments/assets/1088ea12-5579-40f0-bd41-ff1f51734635)
+A book-style portfolio of my background, experience, education, and machine learning projects. Built with plain HTML, CSS, and JavaScript, with original SVG diagrams, responsive layouts, and automatic light and dark themes.
 
+[Visit the portfolio](https://sxres.dev/)
 
+![Screenshot of the portfolio home page, with a table of contents and an illustrated gradient descent loss surface](docs/screenshot.png)
 
-# sv
+## Run locally
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
-
-## Creating a project
-
-If you're seeing this, you've probably already done this step. Congrats!
-
-```sh
-# create a new project
-npx sv create my-app
-```
-
-To recreate this project with the same configuration:
+No dependencies or build step are required. From the repository root, run:
 
 ```sh
-# recreate this project
-npx sv@0.12.4 create --template minimal --types jsdoc --install npm portfolio
+python3 -m http.server 4173 --bind 127.0.0.1
 ```
 
-## Developing
+Then open <http://127.0.0.1:4173>.
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+## Navigation
 
-```sh
-npm run dev
+Select a chapter from the contents to open it. Use the left and right arrow keys to move between chapters, or press Escape to return to the contents. Each chapter also has a **Back to contents** button.
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
+## Editing
 
-## Building
+- `index.html` contains the page shell, metadata, and social previews.
+- `script.js` contains the introduction, chapter content, SVG illustrations, and navigation.
+- `style.css` controls the book layout, typography, themes, and mobile presentation.
+- `Dragos_Sorescu_Resume.pdf` is the downloadable resume.
+- `docs/screenshot.png` is the home page screenshot shown above.
 
-To create a production version of your app:
+The site can be served directly from the repository root by any static host. `CNAME`, `robots.txt`, and `sitemap.xml` contain the domain configuration for `sxres.dev`.
 
-```sh
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+The book design is inspired by *How Things Work* by Roger Jean.
